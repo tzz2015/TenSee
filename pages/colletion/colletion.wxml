@@ -1,2 +1,24 @@
 <!--pages/colletion/colletion.wxml-->
-<text>pages/colletion/colletion.wxml</text>
+<view class="container">
+  <!-- 头部 -->
+  <view class="zhineng-hd">
+    <image class="zhineng-logo" src="../../image/icon_zhineng.png"></image>
+    <view class="zhineng-desc">以下将展示小程序官方组件能力，组件样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见。</view>
+  </view>
+  <!-- 输入框 -->
+ <view class="inputBox" style="bottom:{{bottom}}px">
+        <textarea 
+        auto-height
+        value="{{demand}}"
+        style="padding:10rpx;padding-right: 155rpx;"
+        show-confirm-bar="{{false}}"
+        adjust-position="{{false}}" 
+        cursor-spacing="90" type='text'
+        bindfocus='onbindfocus' 
+        bindblur="bindblur"
+        bindinput="bindinput"
+        placeholder="发表你的才智..." 
+        placeholder-style='color:#9a9a9a;'/>
+        <button class="send_button" disabled="{{demand==''}}" style="bottom:{{bottom}}px" bindtap="sendValue">发表</button>
+</view>
+</view>

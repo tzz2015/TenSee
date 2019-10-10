@@ -1,66 +1,74 @@
 // pages/colletion/colletion.js
+// 引入网络请求工具
+const netUtil = require('../../utils/netUtil.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    bottom: 0,
+    demand: "",
+    demandList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 下拉刷新
+  onPullDownRefresh: function() {
+    setTimeout(() => {
+      wx.stopPullDownRefresh()
+    }, 500)
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //获取焦点
+  onbindfocus(e) {
+    console.log(e)
+    this.setData({
+      bottom: e.detail.height - 50,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  // 输入框行数变化时
+  bindblur(e) {
+    this.setData({
+      bottom: 0,
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  // 输入监听
+  bindinput(e) {
+    this.setData({
+      demand: e.detail.value,
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  // 发布
+  sendValue() {
+    netUtil.postRequest("add_demand", this.data,
+      data => {
+        this.getDemandList()
+        this.setData({
+          demand: "",
+        })
+      },
+      msg => {
+        console.log(msg)
+      }
+    )
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 获取需求列表
+  getDemandList() {
+    netUtil.postRequest("demands", null,
+      data => {
+        console.log(data)
+        this.setData({
+          demandList: data,
+        })
+      },
+      msg => {
+        console.log(msg)
+      }
+    )
   }
 })

@@ -28,14 +28,14 @@ function request(url, params, method, onSuccess, onFailed) {
   wx.showLoading({
     title: '正在加载',
   })
-  const baseUrl = 'http://172.16.19.139:8000/'
+  const baseUrl = 'http://172.16.21.150:8000/'
   wx.request({
     url: baseUrl + url,
     data: dealParams(params),
     method: method,
     header: {
       'content-type': 'application/x-www-form-urlencoded',
-      'appId': app.globalData.appId
+      'APPID': app.globalData.appId
     },
     success: function(res) {
       wx.hideLoading()
@@ -44,9 +44,9 @@ function request(url, params, method, onSuccess, onFailed) {
         if (res.data.code == 200) {
           onSuccess(res.data.data); //request success
         } else {
-          onFailed(res.data.data.msg); //request failed
+          onFailed(res.data.msg); //request failed
           wx.showToast({
-            title: res.data.data.msg,
+            title: res.data.msg,
           })
         }
         /** end 处理结束*/

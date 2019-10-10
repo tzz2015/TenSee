@@ -1,1 +1,38 @@
 /* pages/colletion/colletion.wxss */
+
+.zhineng-hd {
+  padding: 40rpx;
+  text-align: center;
+}
+
+.zhineng-logo {
+  width: 86rpx;
+  height: 86rpx;
+}
+
+.zhineng-desc {
+  color: #888;
+  font-size: 28rpx;
+}
+
+.inputBox {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 94%;
+  padding: 15rpx 3%;
+  background: #fff;
+  z-index: 9999;
+  flex-direction: row;
+  display: flex;
+}
+.send_button{
+  width: 150rpx;
+  height: 68rpx;
+  background-color: #179E16;
+  color: white;
+  font-size: 28rpx;
+  position: fixed;
+  margin: 20rpx;
+  right: 10rpx;
+}

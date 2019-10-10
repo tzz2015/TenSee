@@ -1,7 +1,29 @@
 <!--index.wxml-->
 <view class="container">
-  <text>pages/index/index.wxml</text>
-  <mp-dialog title="请输入你的真实姓名" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
-    <view>test content</view>
-</mp-dialog>
+  <!-- banner -->
+  <view class="banner">
+    <swiper indicator-dots="true" autoplay="true" circular="true">
+      <block wx:for="{{background}}" wx:for-item="item">
+        <swiper-item>
+          <text class="swiper-text">{{item.des}}</text>
+          <image class="swiper-image" src="{{item.imageUrl}}" mode="scaleToFill"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 感言 -->
+  <view class="feeling-item" wx:for="{{feelingList}}" wx:for-item="item">
+     <view >{{item.word}}</view>
+     <view class="feeling-item-name">—— {{item.form.realName}}<text wx:if="{{item.form.tag}}">（{{item.form.tag}}）</text></view>
+  </view>
+  
+  <!-- 弹窗输入姓名 -->
+  <view>
+    <mp-dialog title="请输入你的真实姓名" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+      <view class="input_box">
+        <input class="weui-input" maxlength="5" auto-focus placeholder-class="input_holder" placeholder="请输入" bindinput="bindKeyInput" />
+      </view>
+    </mp-dialog>
+  </view>
+
 </view>

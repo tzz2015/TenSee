@@ -6,10 +6,11 @@
     "pages/mine/mine"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "哈哈哈",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#7A7E83",
@@ -39,6 +40,8 @@
   },
   "sitemapLocation": "sitemap.json",
   "usingComponents": {
-    "mp-dialog": "./weui-miniprogram/dialog/dialog"
+    "mp-dialog": "./weui-miniprogram/dialog/dialog",
+    "mp-cell": "./weui-miniprogram/cell/cell",
+    "mp-cells": "./weui-miniprogram/cells/cells"
   }
 }

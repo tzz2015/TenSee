@@ -3,9 +3,42 @@
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" size="mini"> 获取头像昵称 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+      <view>
+        <text wx:if="{{userInfo.realName!=null}}" class="userinfo-nickname" bindtap="editName">{{userInfo.realName}}</text>
+        <text wx:else class="userinfo-nickname" bindtap="editName">{{userInfo.nickName}}</text>
+        <image class="edit_icon" src="../../image/edit.png" bindtap="editName"></image>
+      </view>
     </block>
   </view>
+  <!-- 联系方式 -->
+  <view class="cell_group">
+  <mp-cells ext-class="my-cells" title="">
+    <mp-cell hover="true" bindtap="editPhone" >
+        <view slot="title">联系方式</view>
+        <view slot="footer" wx:if="{{userInfo.phone}}">{{userInfo.phone}}</view>
+        <view wx:else slot="footer">点击添加</view>
+    </mp-cell>
+      <mp-cell hover="true">
+        <view slot="title">联系方式</view>
+        <view slot="footer">说明文字</view>
+    </mp-cell>
+</mp-cells>
+  </view>
+    <!-- 弹窗输入姓名 -->
+  <view>
+    <mp-dialog title="请输入你的真实姓名" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+      <view class="input_box">
+        <input class="weui-input" maxlength="5" auto-focus placeholder-class="input_holder" placeholder="请输入" bindinput="bindKeyInput" value="{{inputValue}}" />
+      </view>
+    </mp-dialog>
+  </view>
+     <!-- 弹窗输入手机号码 -->
+  <view>
+    <mp-dialog title="请输入你的手机号码" show="{{phoneDialogShow}}" bindbuttontap="phoneDialogButton" buttons="{{buttons}}">
+      <view class="phone_input_box">
+        <input class="weui-input" maxlength="11" auto-focus placeholder-class="input_holder" placeholder="请输入" bindinput="bindPhoneInput" value="{{userInfo.phone}}" type="number"/>
+      </view>
+    </mp-dialog>
+  </view>
 </view>
-

@@ -1,1 +1,49 @@
 /**index.wxss**/
+
+.input_box {
+  margin-left: 130rpx;
+  margin-right: 130rpx;
+  box-align: center;
+  padding: 10rpx;
+  border: 1rpx solid gainsboro;
+}
+
+.input_holder {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.banner {
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+
+swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-image {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-text {
+  position: absolute;
+  top: 30rpx;
+  left: 30rpx;
+  color: white;
+  font-size: 28rpx;
+}
+
+.feeling-item {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 40rpx;
+  padding-bottom: 10rpx;
+}
+
+.feeling-item-name {
+  float: right;
+}
