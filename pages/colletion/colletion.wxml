@@ -6,7 +6,7 @@
     <view class="zhineng-desc" >以下展示对本小程序后期的一些设计功能，以及大家对聚会的一些建议，望大家踊跃发挥自己的才智。</view>
   </view>
   <!-- 才智列表 -->
-  <view class="demand_item" wx:for="{{demandList}}" wx:for-item="item">
+  <view class="demand_item" wx:for="{{demandList}}" wx:for-item="item" wx:key="{{item.id}}">
     <view class="demand_item_head">
       <image class="demand_item_head_image" src="{{item.form.avatarUrl}}"></image>
       <view class="demand_item_top" id="{{item.id}}" bindtap="postStart">

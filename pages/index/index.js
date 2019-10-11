@@ -5,6 +5,7 @@ const app = getApp()
 const netUtil = require('../../utils/netUtil.js')
 Page({
   data: {
+    baseUrl: "",
     dialogShow: false,
     buttons: [{
       text: '取消'
@@ -17,6 +18,9 @@ Page({
     feelingList: []
   },
   onLoad: function() {
+    this.setData({
+      baseUrl: app.globalData.baseUrl
+    })
     this.getBaner()
     this.getFeelings()
     if (app.globalData.userInfo) {

@@ -1,5 +1,5 @@
 //app.js
-var eventBus = require('./utils/eventbus.js')
+const eventBus = require('./utils/eventbus.js')
 App({
   onLaunch: function() {
     wx.login({
@@ -31,6 +31,7 @@ App({
     })
   },
   globalData: {
+    baseUrl: 'https://mini.test.link-nemo.com/',
     bus: eventBus.eventBus,
     userInfo: null,
     appId: null

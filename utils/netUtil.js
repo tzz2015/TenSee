@@ -28,7 +28,7 @@ function request(url, params, method, onSuccess, onFailed) {
   wx.showLoading({
     title: '正在加载',
   })
-  const baseUrl = 'http://172.16.20.13:8000/'
+  const baseUrl = app.globalData.baseUrl
   wx.request({
     url: baseUrl + url,
     data: dealParams(params),
