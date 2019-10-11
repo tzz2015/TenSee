@@ -3,7 +3,7 @@
   <!-- 头部 -->
   <view class="zhineng-hd">
     <image class="zhineng-logo" src="../../image/icon_zhineng.png"></image>
-    <view class="zhineng-desc" >时间，会沉淀最真的情感；风雨，会考验最暖的陪伴。走远的，只是过眼云烟；留下的，才是值得珍惜的情缘。来得热烈，未必守得长久；爱得平淡，未必无情无义。眼睛看到的许是假象，心的感受才最真实。时间会告诉我们，简单的喜欢，最长远；平凡中的陪伴，最心安。</view>
+    <view class="zhineng-desc" >以下展示对本小程序后期的一些设计功能，以及大家对聚会的一些建议，望大家踊跃发挥自己的才智。</view>
   </view>
   <!-- 才智列表 -->
   <view class="demand_item" wx:for="{{demandList}}" wx:for-item="item">
