@@ -3,22 +3,30 @@
   <!-- 头部 -->
   <view class="zhineng-hd">
     <image class="zhineng-logo" src="../../image/icon_zhineng.png"></image>
-    <view class="zhineng-desc">以下将展示小程序官方组件能力，组件样式仅供参考，开发者可根据自身需求自定义组件样式，具体属性参数详见。</view>
+    <view class="zhineng-desc" >时间，会沉淀最真的情感；风雨，会考验最暖的陪伴。走远的，只是过眼云烟；留下的，才是值得珍惜的情缘。来得热烈，未必守得长久；爱得平淡，未必无情无义。眼睛看到的许是假象，心的感受才最真实。时间会告诉我们，简单的喜欢，最长远；平凡中的陪伴，最心安。</view>
   </view>
+  <!-- 才智列表 -->
+  <view class="demand_item" wx:for="{{demandList}}" wx:for-item="item">
+    <view class="demand_item_head">
+      <image class="demand_item_head_image" src="{{item.form.avatarUrl}}"></image>
+      <view class="demand_item_top" id="{{item.id}}" bindtap="postStart">
+        <view class="demand_item_name" >
+          <view wx:if="{{item.form.realName}}">{{item.form.realName}}</view>
+          <view wx:else>{{item.form.nickName}}</view>
+          <image class="demand_item_start_icon" 
+          src="../../image/icon_start.png"></image>
+          <text class="demand_item_start_num">{{item.start}}</text>
+        </view>
+        <view class="demand_item_time">{{item.createTime}}</view>
+      </view>
+    </view>
+    <view class="demand_text" ><text>{{item.demand}}</text></view>
+  </view>
+  <view style="height:60rpx"></view>
   <!-- 输入框 -->
- <view class="inputBox" style="bottom:{{bottom}}px">
-        <textarea 
-        auto-height
-        value="{{demand}}"
-        style="padding:10rpx;padding-right: 155rpx;"
-        show-confirm-bar="{{false}}"
-        adjust-position="{{false}}" 
-        cursor-spacing="90" type='text'
-        bindfocus='onbindfocus' 
-        bindblur="bindblur"
-        bindinput="bindinput"
-        placeholder="发表你的才智..." 
-        placeholder-style='color:#9a9a9a;'/>
-        <button class="send_button" disabled="{{demand==''}}" style="bottom:{{bottom}}px" bindtap="sendValue">发表</button>
-</view>
+  <view class="inputBox" style="bottom:{{bottom}}px">
+    <textarea auto-height value="{{demand}}" style="padding:14rpx;padding-right: 160rpx;" show-confirm-bar="{{false}}" adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onbindfocus' bindblur="bindblur" bindinput="bindinput" placeholder="发表你的才智..."
+      placeholder-style='color:#9a9a9a;' />
+    <button class="send_button" disabled="{{demand==''}}" style="bottom:{{bottom}}px" bindtap="sendValue">发表</button>
+  </view>
 </view>

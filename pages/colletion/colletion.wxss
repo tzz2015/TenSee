@@ -25,14 +25,80 @@
   z-index: 9999;
   flex-direction: row;
   display: flex;
+  border-top: 1rpx solid #f5f7f9;
 }
-.send_button{
+
+
+.send_button {
   width: 150rpx;
   height: 68rpx;
-  background-color: #179E16;
+  background-color: #179e16;
   color: white;
   font-size: 28rpx;
   position: fixed;
   margin: 20rpx;
   right: 10rpx;
+}
+
+.demand_item {
+  width: 100%;
+  background: white;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-bottom: 40rpx;
+  margin-bottom: 20rpx;
+}
+
+.demand_text {
+  color: #666;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+.demand_item_head {
+  width: 100%;
+  height: 120rpx;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+}
+
+.demand_item_head_image {
+  width: 80rpx;
+  height: 80rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  border-radius: 10%;
+}
+
+.demand_item_top {
+  flex: 1;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10rpx;
+}
+
+.demand_item_name {
+  display: flex;
+  flex-direction: row;
+}
+
+.demand_item_start_icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+  margin-right: 10rpx;
+  margin-top: 2rpx;
+}
+
+.demand_item_time {
+  color: #999;
+  font-size: 26rpx;
+}
+
+.demand_item_start_num {
+  margin-top: 3rpx;
+  color: red;
+  font-size: 28rpx;
 }

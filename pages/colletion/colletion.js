@@ -16,19 +16,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    this.getDemandList()
   },
   // 下拉刷新
   onPullDownRefresh: function() {
     setTimeout(() => {
-      wx.stopPullDownRefresh()
+      this.getDemandList()
     }, 500)
   },
   //获取焦点
   onbindfocus(e) {
     console.log(e)
     this.setData({
-      bottom: e.detail.height - 50,
+      bottom: e.detail.height - 55,
     })
   },
   // 输入框行数变化时
@@ -61,9 +61,31 @@ Page({
   getDemandList() {
     netUtil.postRequest("demands", null,
       data => {
+        wx.stopPullDownRefresh()
         console.log(data)
         this.setData({
           demandList: data,
+        })
+      },
+      msg => {
+        wx.stopPullDownRefresh()
+        console.log(msg)
+      }
+    )
+  },
+  viewTap: function() {
+    console.log('view tap')
+  },
+  // 点赞
+  postStart: function(e) {
+    console.log(e.currentTarget.id)
+    netUtil.postRequest("add_start", {
+        id: e.currentTarget.id
+      },
+      data => {
+        this.getDemandList()
+        wx.showToast({
+          title: '点赞成功',
         })
       },
       msg => {

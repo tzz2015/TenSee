@@ -19,9 +19,9 @@
         <view slot="footer" wx:if="{{userInfo.phone}}">{{userInfo.phone}}</view>
         <view wx:else slot="footer">点击添加</view>
     </mp-cell>
-      <mp-cell hover="true">
-        <view slot="title">联系方式</view>
-        <view slot="footer">说明文字</view>
+      <mp-cell hover="true" link>
+        <view slot="title">那些年的</view>
+        <view slot="footer">时间轴</view>
     </mp-cell>
 </mp-cells>
   </view>
