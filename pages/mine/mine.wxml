@@ -27,7 +27,7 @@
   </view>
     <!-- 弹窗输入姓名 -->
   <view>
-    <mp-dialog title="请输入你的真实姓名" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
+    <mp-dialog size="mini" title="请输入你的真实姓名" show="{{dialogShow}}" bindbuttontap="tapDialogButton" buttons="{{buttons}}">
       <view class="input_box">
         <input class="weui-input" maxlength="5" auto-focus placeholder-class="input_holder" placeholder="请输入" bindinput="bindKeyInput" value="{{inputValue}}" />
       </view>
@@ -35,7 +35,7 @@
   </view>
      <!-- 弹窗输入手机号码 -->
   <view>
-    <mp-dialog title="请输入你的手机号码" show="{{phoneDialogShow}}" bindbuttontap="phoneDialogButton" buttons="{{buttons}}">
+    <mp-dialog size="mini" title="请输入你的手机号码" show="{{phoneDialogShow}}" bindbuttontap="phoneDialogButton" buttons="{{buttons}}">
       <view class="phone_input_box">
         <input class="weui-input" maxlength="11" auto-focus placeholder-class="input_holder" placeholder="请输入" bindinput="bindPhoneInput" value="{{userInfo.phone}}" type="number"/>
       </view>
