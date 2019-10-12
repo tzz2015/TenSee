@@ -14,6 +14,16 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+const isEmpty = data => {
+  return data == undefined || data == null || data == "" || data == "null"
+}
+
+const isNotEmpty = data => {
+  return !isEmpty(data)
+}
+
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  isEmpty: isEmpty,
+  isNotEmpty: isNotEmpty
 }

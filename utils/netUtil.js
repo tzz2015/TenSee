@@ -35,7 +35,7 @@ function request(url, params, method, onSuccess, onFailed) {
     method: method,
     header: {
       'content-type': 'application/x-www-form-urlencoded',
-      'APPID': app.globalData.appId
+      'OPENID': app.globalData.openId
     },
     success: function(res) {
       wx.hideLoading()
@@ -47,6 +47,7 @@ function request(url, params, method, onSuccess, onFailed) {
           onFailed(res.data.msg); //request failed
           wx.showToast({
             title: res.data.msg,
+            icon: "none"
           })
         }
         /** end 处理结束*/
@@ -58,6 +59,7 @@ function request(url, params, method, onSuccess, onFailed) {
       console.log(error)
       wx.showToast({
         title: error.errMsg,
+        icon: none
       })
       onFailed(error.errMsg); //failure for other reasons
     }

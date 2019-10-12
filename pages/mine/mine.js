@@ -3,6 +3,7 @@
 const app = getApp()
 // 引入网络请求工具
 const netUtil = require('../../utils/netUtil.js')
+const util = require('../../utils/util.js')
 Page({
   data: {
     userInfo: {},
@@ -23,7 +24,7 @@ Page({
     })
   },
   //事件处理函数
-  editPhone: function () {
+  editPhone: function() {
     this.setData({
       phoneDialogShow: true
     })
@@ -34,31 +35,19 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    }
+    } 
   },
   getUserInfo: function(e) {
     console.log(e)
-    app.getAppId()
-    e.detail.userInfo.appId = app.globalData.appId
-    this.getUser(e.detail.userInfo)
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    this.getOpenId()
   },
   // 下拉刷新
   onPullDownRefresh: function() {
     setTimeout(() => {
-      app.getAppId()
       this.getUser(app.globalData.userInfo)
       wx.stopPullDownRefresh()
     }, 500)
@@ -67,11 +56,14 @@ Page({
   getUser: function(userInfo) {
     netUtil.postRequest("updateUser", userInfo,
       data => {
-        app.globalData.userInfo = data
-        this.setData({
-          userInfo: data,
-          hasUserInfo: true
-        })
+        if (data) {
+          app.globalData.userInfo = data
+          this.setData({
+            userInfo: data,
+            hasUserInfo: true
+          })
+        }
+
       },
       msg => {
         console.log(msg)
@@ -114,6 +106,27 @@ Page({
     this.getUser(app.globalData.userInfo)
     this.setData({
       phoneDialogShow: false,
+    })
+  },
+  getOpenId: function() {
+    var that=this
+    wx.login({
+      success(res) {
+        console.log(res);
+        netUtil.postRequest("login", res,
+          data => {
+            console.log(data)
+            app.globalData.openId = data.openid
+            that.getUser(that.data.userInfo)
+          },
+          msg => {
+            console.log(msg)
+          }
+        )
+      },
+      fail(msg) {
+        console.log(msg);
+      }
     })
   },
 })

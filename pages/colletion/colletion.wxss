@@ -1,8 +1,10 @@
 /* pages/colletion/colletion.wxss */
 
 .zhineng-hd {
+  background-color: white;
   padding: 40rpx;
   text-align: center;
+  border-radius: 50% / 100% 100% 0 0;
 }
 
 .zhineng-logo {

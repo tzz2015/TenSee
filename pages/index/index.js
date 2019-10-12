@@ -18,22 +18,16 @@ Page({
     feelingList: []
   },
   onLoad: function() {
+    this.getOpenId()
     this.setData({
       baseUrl: app.globalData.baseUrl
     })
     this.getBaner()
     this.getFeelings()
-    if (app.globalData.userInfo) {
-      this.getUser(app.globalData.userInfo)
-    } else {
-      app.userInfoReadyCallback = res => {
-        this.getUser(res.userInfo)
-      }
-    }
   },
   // 请求用户信息
-  getUser: function(userInfo) {
-    netUtil.postRequest("updateUser", userInfo,
+  getUser: function() {
+    netUtil.postRequest("userByOpenId", null,
       data => {
         console.log(data)
         app.globalData.userInfo = data
@@ -44,7 +38,9 @@ Page({
         }
       },
       msg => {
-        console.log(msg)
+        wx.switchTab({
+          url: '/pages/mine/mine',
+        })
       }
     )
   },
@@ -107,5 +103,26 @@ Page({
       this.getBaner()
       this.getFeelings()
     }, 500)
+  },
+  getOpenId: function() {
+    var that = this
+    wx.login({
+      success(res) {
+        console.log(res);
+        netUtil.postRequest("login", res,
+          data => {
+            console.log(data)
+            app.globalData.openId = data.openid
+            that.getUser()
+          },
+          msg => {
+            console.log(msg)
+          }
+        )
+      },
+      fail(msg) {
+        console.log(msg);
+      }
+    })
   },
 })
