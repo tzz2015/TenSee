@@ -1,6 +1,7 @@
 /* pages/colletion/colletion.wxss */
 
 .zhineng-hd {
+  height: 230rpx;
   background-color: white;
   padding: 40rpx;
   text-align: center;
@@ -14,7 +15,29 @@
 
 .zhineng-desc {
   color: #888;
+  margin-top: 20rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  line-height: 50rpx;
   font-size: 28rpx;
+}
+.top_circle_left{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: white;
+  border-radius: 50%;
+  left: 35rpx;
+  top: 35rpx;
+}
+.top_circle_right{
+  position: fixed;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: white;
+  border-radius: 50%;
+  right: 35rpx;
+  top: 35rpx;
 }
 
 .inputBox {
@@ -104,3 +127,4 @@
   color: red;
   font-size: 28rpx;
 }
+

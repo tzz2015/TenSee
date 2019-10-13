@@ -1,4 +1,5 @@
 /**index.wxss**/
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -6,7 +7,7 @@
   background-color: white;
   width: 100%;
   height: 300rpx;
- border-radius: 100% 100% 100% 100% / 0% 0% 30% 30%;
+  border-radius: 100% 100% 100% 100% / 0% 0% 30% 30%;
 }
 
 .userinfo-avatar {
@@ -37,6 +38,7 @@
   padding: 10rpx;
   border: 1rpx solid gainsboro;
 }
+
 .phone_input_box {
   margin-top: 30rpx;
   margin-left: 100rpx;
@@ -51,11 +53,13 @@
   color: #999;
 }
 
-.cell_group{
+.cell_group {
   width: 100%;
   margin-top: 40rpx;
 }
-.cell_icon{
+
+.cell_icon {
   width: 40rpx;
   height: 40rpx;
 }
+

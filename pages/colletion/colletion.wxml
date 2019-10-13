@@ -3,24 +3,27 @@
   <!-- 头部 -->
   <view class="zhineng-hd">
     <image class="zhineng-logo" src="../../image/icon_zhineng.png"></image>
-    <view class="zhineng-desc" >以下展示对本小程序后期的一些设计功能，以及大家对聚会的一些建议，望大家踊跃发挥自己的才智。</view>
+    <view class="zhineng-desc">以下展示对本小程序后期的一些设计功能，以及大家对聚会的一些建议，望大家踊跃发挥自己的才智。</view>
   </view>
+  <view class="top_circle_left"></view>
+  <view class="top_circle_right"></view>
   <!-- 才智列表 -->
   <view class="demand_item" wx:for="{{demandList}}" wx:for-item="item" wx:key="{{item.id}}">
     <view class="demand_item_head">
       <image class="demand_item_head_image" src="{{item.form.avatarUrl}}"></image>
       <view class="demand_item_top" id="{{item.id}}" bindtap="postStart">
-        <view class="demand_item_name" >
+        <view class="demand_item_name">
           <view wx:if="{{item.form.realName}}">{{item.form.realName}}</view>
           <view wx:else>{{item.form.nickName}}</view>
-          <image class="demand_item_start_icon" 
-          src="../../image/icon_start.png"></image>
+          <image class="demand_item_start_icon" src="../../image/icon_start.png"></image>
           <text class="demand_item_start_num">{{item.start}}</text>
         </view>
         <view class="demand_item_time">{{item.createTime}}</view>
       </view>
     </view>
-    <view class="demand_text" ><text>{{item.demand}}</text></view>
+    <view class="demand_text">
+      <text>{{item.demand}}</text>
+    </view>
   </view>
   <view style="height:60rpx"></view>
   <!-- 输入框 -->
