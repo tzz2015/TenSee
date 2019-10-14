@@ -26,6 +26,17 @@ Page({
     this.getFeelings()
     app.allowShare()
   },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function() {
+    if (typeof this.getTabBar === 'function' &&
+      this.getTabBar()) {
+      this.getTabBar().setData({
+        selected: 0
+      })
+    }
+  },
   // 请求用户信息
   getUser: function() {
     netUtil.postRequest("userByOpenId", null,
@@ -143,5 +154,5 @@ Page({
         console.log(msg);
       }
     })
-  },
+  }
 })

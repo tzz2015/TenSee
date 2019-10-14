@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showPulic: false,
     bottom: 0,
     demand: "",
     demandList: []
@@ -89,6 +90,24 @@ Page({
         wx.showToast({
           title: '点赞成功',
         })
+      },
+      msg => {
+        console.log(msg)
+      }
+    )
+  },
+  onShow: function() {
+    this.getShowPulic()
+  },
+  // 获取tabBar接口
+  getShowPulic: function() {
+    netUtil.postRequest("switch_tab_bar", null,
+      data => {
+        if (data == 1) {
+          this.setData({
+            showPulic: true
+          })
+        }
       },
       msg => {
         console.log(msg)

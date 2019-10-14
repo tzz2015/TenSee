@@ -6,11 +6,12 @@ App({
     baseUrl: 'http://172.16.20.13:8000/',
     bus: eventBus.eventBus,
     userInfo: null,
-    openId: null
+    openId: null,
   },
   onLaunch: function() {
 
   },
+  // 允许转发
   allowShare: function() {
     wx.showShareMenu({
       withShareTicket: true
