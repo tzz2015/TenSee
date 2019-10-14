@@ -1,12 +1,14 @@
 <!--pages/colletion/colletion.wxml-->
 <view class="container">
   <!-- 头部 -->
-  <view class="zhineng-hd">
-    <image class="zhineng-logo" src="../../image/icon_zhineng.png"></image>
-    <view class="zhineng-desc">以下展示对本小程序后期的一些设计功能，以及大家对聚会的一些建议，望大家踊跃发挥自己的才智。</view>
+  <view>
+    <view class="zhineng-hd">
+      <image class="zhineng-logo" src="../../image/icon_zhineng.png"></image>
+      <view class="zhineng-desc">以下展示对本小程序后期的一些设计功能，以及大家对聚会的一些建议，望大家踊跃发挥自己的才智。收集截止时间2019-10-20。</view>
+    </view>
+    <view class="top_circle_left"></view>
+    <view class="top_circle_right"></view>
   </view>
-  <view class="top_circle_left"></view>
-  <view class="top_circle_right"></view>
   <!-- 才智列表 -->
   <view class="demand_item" wx:for="{{demandList}}" wx:for-item="item" wx:key="{{item.id}}">
     <view class="demand_item_head">
@@ -28,8 +30,8 @@
   <view style="height:60rpx"></view>
   <!-- 输入框 -->
   <view class="inputBox" style="bottom:{{bottom}}px">
-    <textarea auto-height value="{{demand}}" style="padding:14rpx;padding-right: 160rpx;" show-confirm-bar="{{false}}" adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onbindfocus' bindblur="bindblur" bindinput="bindinput" placeholder="发表你的才智..."
-      placeholder-style='color:#9a9a9a;' />
+    <textarea auto-height value="{{demand}}" style="padding:14rpx;padding-right: 160rpx;" show-confirm-bar="{{false}}" adjust-position="{{false}}" cursor-spacing="90" type='text' bindfocus='onbindfocus' bindblur="bindblur" bindinput="bindinput" placeholder="发表你的才智..." placeholder-style='color:#9a9a9a;'
+      fixed="true" />
     <button class="send_button" disabled="{{demand==''}}" style="bottom:{{bottom}}px" bindtap="sendValue">发表</button>
   </view>
 </view>

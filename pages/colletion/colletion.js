@@ -1,6 +1,7 @@
 // pages/colletion/colletion.js
 // 引入网络请求工具
 const netUtil = require('../../utils/netUtil.js')
+const app = getApp()
 Page({
 
   /**
@@ -17,6 +18,7 @@ Page({
    */
   onLoad: function(options) {
     this.getDemandList()
+    app.allowShare()
   },
   // 下拉刷新
   onPullDownRefresh: function() {

@@ -24,6 +24,7 @@ Page({
     })
     this.getBaner()
     this.getFeelings()
+    app.allowShare()
   },
   // 请求用户信息
   getUser: function() {
@@ -41,6 +42,24 @@ Page({
         wx.switchTab({
           url: '/pages/mine/mine',
         })
+      }
+    )
+  },
+  // 设置用户信息
+  setUser: function(userInfo) {
+    netUtil.postRequest("updateUser", userInfo,
+      data => {
+        if (data) {
+          app.globalData.userInfo = data
+          this.setData({
+            userInfo: data,
+            hasUserInfo: true
+          })
+        }
+
+      },
+      msg => {
+        console.log(msg)
       }
     )
   },
@@ -71,7 +90,7 @@ Page({
       return
     }
     if (e.detail.index == 1) {
-      this.getUser(app.globalData.userInfo)
+      this.setUser(app.globalData.userInfo)
     }
     this.setData({
       dialogShow: false,

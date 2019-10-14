@@ -1,7 +1,7 @@
 /* pages/colletion/colletion.wxss */
 
 .zhineng-hd {
-  height: 230rpx;
+  height: 260rpx;
   background-color: white;
   padding: 40rpx;
   text-align: center;
@@ -21,8 +21,9 @@
   line-height: 50rpx;
   font-size: 28rpx;
 }
-.top_circle_left{
-  position: fixed;
+
+.top_circle_left {
+  position: absolute;
   width: 100rpx;
   height: 100rpx;
   background-color: white;
@@ -30,14 +31,27 @@
   left: 35rpx;
   top: 35rpx;
 }
-.top_circle_right{
-  position: fixed;
+
+.top_circle_right {
+  position: absolute;
   width: 100rpx;
   height: 100rpx;
   background-color: white;
   border-radius: 50%;
   right: 35rpx;
   top: 35rpx;
+}
+
+.inputBox {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: row;
+  border-top: 1rpx solid #f5f7f9;
 }
 
 .inputBox {
@@ -127,4 +141,3 @@
   color: red;
   font-size: 28rpx;
 }
-
