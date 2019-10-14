@@ -124,8 +124,8 @@
 }
 
 .demand_item_start_icon {
-  width: 40rpx;
-  height: 40rpx;
+  width: 38rpx;
+  height: 38rpx;
   margin-left: 20rpx;
   margin-right: 10rpx;
   margin-top: 10rpx;
@@ -137,7 +137,7 @@
 }
 
 .demand_item_start_num {
-  margin-top: 14rpx;
+  margin-top: 10rpx;
   color: red;
   font-size: 28rpx;
 }
