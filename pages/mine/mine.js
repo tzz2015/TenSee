@@ -23,6 +23,12 @@ Page({
       dialogShow: true
     })
   },
+  timeLine:function(){
+    wx.showToast({
+      title: "老蒙又看书去了，没有写！",
+      icon: "none"
+    })
+  },
   //事件处理函数
   editPhone: function() {
     this.setData({

@@ -4,15 +4,15 @@ const app = getApp()
 /**
  * 供外部post请求调用
  */
-function post(url, params, onSuccess, onFailed) {
-  request(url, params, "POST", onSuccess, onFailed);
+function post(url, params, onSuccess, onFailed, isLoading) {
+  request(url, params, "POST", onSuccess, onFailed, isLoading);
 }
 
 /**
  * 供外部get请求调用
  */
-function get(url, params, onSuccess, onFailed) {
-  request(url, params, "GET", onSuccess, onFailed);
+function get(url, params, onSuccess, onFailed, isLoading) {
+  request(url, params, "GET", onSuccess, onFailed, isLoading);
 }
 
 /**
@@ -24,10 +24,12 @@ function get(url, params, onSuccess, onFailed) {
  * @onSuccess 成功回调
  * @onFailed  失败回调
  */
-function request(url, params, method, onSuccess, onFailed) {
-  wx.showLoading({
-    title: '正在加载',
-  })
+function request(url, params, method, onSuccess, onFailed, isLoading) {
+  if (isLoading == undefined || isLoading) {
+    wx.showLoading({
+      title: '正在加载',
+    })
+  }
   const baseUrl = app.globalData.baseUrl
   wx.request({
     url: baseUrl + url,
@@ -57,10 +59,12 @@ function request(url, params, method, onSuccess, onFailed) {
     fail: function(error) {
       wx.hideLoading()
       console.log(error)
-      wx.showToast({
-        title: error.errMsg,
-        icon: none
-      })
+      if (isLoading == undefined || !isLoading) {
+        wx.showToast({
+          title: error.errMsg,
+          icon: none
+        })
+      }
       onFailed(error.errMsg); //failure for other reasons
     }
   })

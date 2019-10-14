@@ -111,7 +111,7 @@ Page({
       },
       msg => {
         console.log(msg)
-      }
+      }, false
     )
   }
 })

@@ -19,7 +19,7 @@
         <view slot="footer" wx:if="{{userInfo.phone}}">{{userInfo.phone}}</view>
         <view wx:else slot="footer">点击添加</view>
       </mp-cell>
-      <mp-cell hover="true" link>
+      <mp-cell hover="true" link bindtap="timeLine">
         <view slot="title">那些年的</view>
         <view slot="footer">时间轴</view>
       </mp-cell>
