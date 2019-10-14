@@ -128,7 +128,7 @@
   height: 40rpx;
   margin-left: 20rpx;
   margin-right: 10rpx;
-  margin-top: 2rpx;
+  margin-top: 10rpx;
 }
 
 .demand_item_time {
@@ -137,7 +137,7 @@
 }
 
 .demand_item_start_num {
-  margin-top: 3rpx;
+  margin-top: 14rpx;
   color: red;
   font-size: 28rpx;
 }
