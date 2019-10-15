@@ -5,7 +5,6 @@ const app = getApp()
 const netUtil = require('../../utils/netUtil.js')
 Page({
   data: {
-    baseUrl: "",
     dialogShow: false,
     buttons: [{
       text: '取消'
@@ -19,9 +18,6 @@ Page({
   },
   onLoad: function() {
     this.getOpenId()
-    this.setData({
-      baseUrl: app.globalData.baseUrl
-    })
     this.getBaner()
     this.getFeelings()
     app.allowShare()

@@ -4,6 +4,8 @@ const app = getApp()
 // 引入网络请求工具
 const netUtil = require('../../utils/netUtil.js')
 const util = require('../../utils/util.js')
+const imageUtil = require('../../utils/chooseMedia.js')
+
 Page({
   data: {
     userInfo: {},
@@ -23,11 +25,17 @@ Page({
       dialogShow: true
     })
   },
-  timeLine:function(){
+  timeLine: function() {
     wx.showToast({
       title: "老蒙又看书去了，没有写！",
       icon: "none"
     })
+    imageUtil.chooseImage(9,
+      data => {
+        console.log(data)
+        imageUtil.uploadFile(data[0])
+      }
+    )
   },
   //事件处理函数
   editPhone: function() {
@@ -42,7 +50,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } 
+    }
   },
   getUserInfo: function(e) {
     console.log(e)
@@ -116,7 +124,7 @@ Page({
     })
   },
   getOpenId: function() {
-    var that=this
+    var that = this
     wx.login({
       success(res) {
         console.log(res);

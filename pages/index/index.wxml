@@ -6,7 +6,7 @@
       <block wx:for="{{background}}" wx:for-item="item" wx:key="{{item.id}}">
         <swiper-item>
           <text class="swiper-text" style="color:{{item.desColor}}">{{item.des}}</text>
-          <image class="swiper-image" src="{{baseUrl+item.imageUrl}}" mode="aspectFill"></image>
+          <image class="swiper-image" src="{{item.imageUrl}}" mode="aspectFill"></image>
         </swiper-item>
       </block>
     </swiper>
