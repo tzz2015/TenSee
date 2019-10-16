@@ -103,11 +103,9 @@ Page({
   getShowPulic: function() {
     netUtil.postRequest("switch_tab_bar", null,
       data => {
-        if (data == 1) {
-          this.setData({
-            showPulic: true
-          })
-        }
+        this.setData({
+          showPulic: data == 1
+        })
       },
       msg => {
         console.log(msg)
