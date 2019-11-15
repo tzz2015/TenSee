@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/games/games",
     "pages/index/index",
     "pages/logs/logs",
     "pages/colletion/colletion",
@@ -18,6 +19,12 @@
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
+      {
+        "pagePath": "pages/games/games",
+        "iconPath": "image/icon_games.png",
+        "selectedIconPath": "image/icon_games_select.png",
+        "text": "游戏"
+      },
       {
         "pagePath": "pages/index/index",
         "iconPath": "image/icon_component.png",

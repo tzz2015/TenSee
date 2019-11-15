@@ -44,9 +44,13 @@ function request(url, params, method, onSuccess, onFailed, isLoading) {
       if (res.data) {
         /** start 根据需求 接口的返回状态码进行处理 */
         if (res.data.code == 200) {
-          onSuccess(res.data.data); //request success
+          if(onSuccess!=undefined){
+            onSuccess(res.data.data); //request success
+          }
         } else {
-          onFailed(res.data.msg); //request failed
+          if (onSuccess != undefined) {
+            onFailed(res.data.msg); //request failed
+          }
           wx.showToast({
             title: res.data.msg,
             icon: "none"
